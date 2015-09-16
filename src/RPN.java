@@ -8,6 +8,7 @@ public class RPN {
 		String output = "";
 		String tmp = "";
 		
+		input = removeWS(input);
 		input = addSeparator(input, 1);
 		
 		for(int i = 0; i < input.length();i++){
@@ -149,6 +150,19 @@ public class RPN {
 		return output;
 	}//End of addSeparator()
 	
+	/**
+	 * Removes white spaces from a string.
+	 * Returns the modified string.
+	 */
+	static private String removeWS(String input){
+		String output = "";
+		
+		for(int i = 0; i < input.length(); i++){
+			if(input.charAt(i) != ' ') output += input.charAt(i);
+		}
+		
+		return output;
+	}
 	
 	/**
 	 * Takes a RPN formatted string with ',' used as separator
