@@ -27,13 +27,21 @@ public class Calculator {
 				strForCalc = input.nextLine();
 				strForCalc = strForCalc.replaceAll(" ", "");
         
-				strForCalc = RPN.format(strForCalc);
-
-				System.out.println("The RPN representation of your expression is> "+strForCalc.replaceAll(",", " "));
-
-				String result = RPN.calc(strForCalc);
-
-				System.out.println("The final result is> "+result+"\n");
+				try{
+					strForCalc = RPN.format(strForCalc);
+	
+					System.out.println("The RPN representation of your expression is> "+strForCalc.replaceAll(",", " "));
+	
+					String result = RPN.calc(strForCalc);
+	
+					System.out.println("The final result is> "+result+"\n");
+				}
+				catch(java.lang.NumberFormatException e){
+					System.out.println("Input error");
+				}
+				catch(java.lang.StringIndexOutOfBoundsException e){
+					System.out.println("Input error");
+				}
 
 			}	
 		}	
